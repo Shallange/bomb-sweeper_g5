@@ -15,7 +15,14 @@ public class InputHandler {
     public boolean isValidInput(String input, int maxRow, int maxCol) {
         if (input.length() != 2)
             return false;
-        // todo symbol, inom bounds
+
+        char rowChar = input.charAt(0);
+        char colChar = input.charAt(1);
+
+        if (rowChar < 'a' || rowChar >= 'a' + maxRow)
+            return false;
+        if (colChar < 1 || colChar >= 1 + maxCol)
+            return false;
         return true;
     }
 
