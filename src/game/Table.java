@@ -10,14 +10,13 @@ public class Table {
         this.rows = rows;
         this.cols = cols;
         table = new String[rows][cols];
-        showTable();
+
     }
 
     public void showTable() {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
-                table[i][j] = " . ";
-                System.out.print(table[i][j]+ " ");
+                System.out.print(""+table[i][j]+ "");
                 if (j < table[i].length -1){
                     System.out.print("|");
                 }
