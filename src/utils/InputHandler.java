@@ -3,10 +3,9 @@ package utils;
 import java.util.Scanner;
 
 public class InputHandler {
-    private Scanner sc;
+    public static Scanner sc;
 
-    public  InputHandler(Scanner scanner) {
-        this.sc = sc;
+    public  InputHandler() {
     }
 
     public String getInput() {
@@ -20,8 +19,14 @@ public class InputHandler {
         return true;
     }
 
-    //todo int till rad
-    //Todo int till kolumn
+    //int till rad
+    public int rowIndex(String input) {
+        return input.charAt(0) - 'a';
+    }
+    //bokstav till index
+    public int colIndex(String input) {
+        return Character.getNumericValue(input.charAt(1)) -1;
+    }
 
 
 
