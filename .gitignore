@@ -2,7 +2,9 @@
 *.iml
 *.class
 out/
-/.idea
+**/out/
+.idea/
+**/.idea
 !**/src/main/**/out/
 !**/src/test/**/out/
 
