@@ -12,6 +12,7 @@ public class InputHandler {
         System.out.println("Viken ruta vill du undersöka? (tex. b5)");
         return sc.nextLine().toLowerCase();
     }
+
     public boolean isValidInput(String input, int maxRow, int maxCol) {
         if (input.length() != 2)
             return false;
@@ -21,8 +22,11 @@ public class InputHandler {
 
         if (rowChar < 'a' || rowChar >= 'a' + maxRow)
             return false;
+
+        int col = Character.getNumericValue(colChar);
         if (colChar < 1 || colChar >= 1 + maxCol)
             return false;
+
         return true;
     }
 
