@@ -3,13 +3,13 @@ package utils;
 import java.util.Scanner;
 
 public class InputHandler {
-    public static Scanner sc;
+    public static Scanner sc = new Scanner(System.in);
 
     public  InputHandler() {
     }
 
     public String getInput() {
-        System.out.println("Viken ruta vill du undersöka?");
+        System.out.println("Viken ruta vill du undersöka? (tex. b5)");
         return sc.nextLine().toLowerCase();
     }
     public boolean isValidInput(String input, int maxRow, int maxCol) {
