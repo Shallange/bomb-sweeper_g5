@@ -24,13 +24,13 @@ public class InputHandler {
             return false;
 
         int col = Character.getNumericValue(colChar);
-        if (colChar < 1 || colChar >= 1 + maxCol)
+        if (col < 1 || col >= 1 + maxCol)
             return false;
 
         return true;
     }
 
-    //int till rad
+    //rad till index
     public int rowIndex(String input) {
         return input.charAt(0) - 'a';
     }
