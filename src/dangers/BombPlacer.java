@@ -48,4 +48,14 @@ public class BombPlacer {
             System.out.printf("Row: %d, Col: %d%n", b.getRow(), b.getCol());
         }
     }
+    private static boolean isHitBomb(List<Bomb> bombs, int row, int col, boolean hitBomb) {
+        for (Bomb b : bombs) {
+            if (b.getRow() == row && b.getCol() == col) {
+                hitBomb = true;
+                break;
+            }
+        }
+        return hitBomb;
+    }
+
 }

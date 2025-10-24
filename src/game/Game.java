@@ -36,10 +36,10 @@ public class Game {
             }
 
             if (hitBomb) {
-                System.out.println("Boom!💣Game over.");
+                System.out.println("Boom!\uD83D\uDCA3 Game over.");
                 break; // exit loop
             } else {
-                table.table[row][col] = "X"; // mark cell as revealed
+                table.table[row][col] = "X";
             }
 
             table.showTable();
