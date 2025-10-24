@@ -42,7 +42,7 @@ public class Game {
             }
 
             if (revealed[row][col]) {
-                System.out.println("Rutan är redan undersökt, försök med en annan ");
+                System.out.println(Emoji.collision + "Rutan är redan undersökt, försök med en annan ");
                 continue;
             }
 
