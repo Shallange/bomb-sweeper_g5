@@ -5,7 +5,6 @@ public class Game {
     int rows = 6;
     int cols = 6;
 
-    boolean gameOver = false;
     boolean [][] revealed = new boolean[rows][cols];
 
     InputHandler inputHandler = new InputHandler();
@@ -18,13 +17,20 @@ public class Game {
                 System.out.println("Felaktig inmatning, försök igen (tex. B3");
                 continue;
             }
-            int row = inputHandler.rowIndex(input);
-            int col = inputHandler.colIndex(input);
+            int rows = inputHandler.rowIndex(input);
+            int cols = inputHandler.colIndex(input);
+
+            if (revealed[rows][cols]) {
+                System.out.println("Rutan är redan undersökt, försök med en annan ");
+                continue;
+            }
+
+            revealed[rows][cols] = true;
 
             
 
-            revealed[row][col] = true;
         }
+
     }
 
 }
