@@ -1,16 +1,19 @@
 package game;
 
+import dangers.Bomb;
+import java.util.List;
+
 public class Table {
     int rows;
     int cols;
     String[][] table = new String[rows][cols];
+    private List<Bomb> bombs;
 
-
-    public Table(int rows, int cols) {
+    public Table(int rows, int cols, List<Bomb> bombs) {
         this.rows = rows;
         this.cols = cols;
+        this.bombs = bombs;
         table = new String[rows][cols];
-
     }
 
     public void showTable() {
@@ -34,4 +37,5 @@ public class Table {
         }
     }
 
+    public List<Bomb> getBombs() {return bombs;}
 }
