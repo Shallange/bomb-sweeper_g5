@@ -10,7 +10,7 @@ public class InputHandler {
 
     public String getInput() {
         System.out.println("Viken ruta vill du undersöka? (tex. b5)");
-        return sc.nextLine().toLowerCase();
+        return sc.nextLine().trim().toLowerCase();
     }
 
     public boolean isValidInput(String input, int maxRow, int maxCol) {

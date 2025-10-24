@@ -14,6 +14,15 @@ public class Table {
         this.cols = cols;
         this.bombs = bombs;
         table = new String[rows][cols];
+        initTable(rows, cols);
+    }
+
+    private void initTable(int rows, int cols) {
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                table[i][j] = "    ";
+            }
+        }
     }
 
     public void showTable() {

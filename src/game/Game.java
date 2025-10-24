@@ -8,7 +8,7 @@ import java.util.List;
 public class Game {
     int rows = 6;
     int cols = 6;
-    int numBombs = 3;//
+    int numBombs = 3;
 
     boolean [][] revealed = new boolean[rows][cols];
 
@@ -27,15 +27,26 @@ public class Game {
                 System.out.println("Felaktig inmatning, försök igen (tex. B3");
                 continue;
             }
-            int rows = inputHandler.rowIndex(input);
-            int cols = inputHandler.colIndex(input);
+            int row = inputHandler.rowIndex(input);
+            int col = inputHandler.colIndex(input);
+          
+            boolean hitBomb = bombPlacer.isHitBomb(bombs, row, col, false);
 
-            if (revealed[rows][cols]) {
+            if (hitBomb) {
+                System.out.println("Boom!\uD83D\uDCA3 Game over.");
+                break; // exit loop
+            } else {
+                table.table[row][col] = " X  ";
+            }
+     
+            if (revealed[row][col]) {
                 System.out.println("Rutan är redan undersökt, försök med en annan ");
                 continue;
             }
+          
+            revealed[row][col] = true;
+            table.showTable();
 
-            revealed[rows][cols] = true;
         }
 
     }
