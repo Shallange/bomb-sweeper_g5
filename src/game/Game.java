@@ -27,19 +27,14 @@ public class Game {
             }
             int row = inputHandler.rowIndex(input);
             int col = inputHandler.colIndex(input);
-            boolean hitBomb = false;
-            for (Bomb b : bombs) {
-                if (b.getRow() == row && b.getCol() == col) {
-                    hitBomb = true;
-                    break;
-                }
-            }
+
+            boolean hitBomb = bombPlacer.isHitBomb(bombs, row, col, false);
 
             if (hitBomb) {
                 System.out.println("Boom!\uD83D\uDCA3 Game over.");
                 break; // exit loop
             } else {
-                table.table[row][col] = "X";
+                table.table[row][col] = " X  ";
             }
 
             table.showTable();
