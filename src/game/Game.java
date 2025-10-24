@@ -27,6 +27,23 @@ public class Game {
             }
             int row = inputHandler.rowIndex(input);
             int col = inputHandler.colIndex(input);
+            boolean hitBomb = false;
+            for (Bomb b : bombs) {
+                if (b.getRow() == row && b.getCol() == col) {
+                    hitBomb = true;
+                    break;
+                }
+            }
+
+            if (hitBomb) {
+                System.out.println("Boom!💣Game over.");
+                break; // exit loop
+            } else {
+                table.table[row][col] = "X"; // mark cell as revealed
+            }
+
+            table.showTable();
+
         }
     }
 
