@@ -26,9 +26,6 @@ public class Game {
             }
 
             revealed[rows][cols] = true;
-
-            
-
         }
 
     }
