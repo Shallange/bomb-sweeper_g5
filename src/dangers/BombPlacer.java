@@ -2,6 +2,7 @@ package dangers;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ListResourceBundle;
 import java.util.Random;
 
 public class BombPlacer {
@@ -34,5 +35,17 @@ public class BombPlacer {
             }
         }
         return bombs;
+    }
+
+    /**
+     * reveals the coordinates where the bombs are placed
+     *
+     * @param bombs List of Bomb objects
+     */
+    public void printBombs(List<Bomb> bombs){
+        System.out.println("Revealing Bomb placements");
+        for (Bomb b : bombs){
+            System.out.printf("Row: %d, Col: %d%n", b.getRow(), b.getCol());
+        }
     }
 }
