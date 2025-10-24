@@ -5,6 +5,9 @@ public class Game {
     int rows = 6;
     int cols = 6;
 
+    boolean gameOver = false;
+    boolean [][] revealed = new boolean[rows][cols];
+
     InputHandler inputHandler = new InputHandler();
 
     public void playGame() {
@@ -17,6 +20,10 @@ public class Game {
             }
             int row = inputHandler.rowIndex(input);
             int col = inputHandler.colIndex(input);
+
+            
+
+            revealed[row][col] = true;
         }
     }
 
