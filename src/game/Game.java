@@ -35,7 +35,7 @@ public class Game {
 
             if (hitBomb) {
 
-                System.out.println("Boom!" + Emoji.bomb + " Game over.");
+                System.out.println("Boom!" + Emoji.bomb + " Game over." + Emoji.crying);
                 break; // exit loop
             } else {
                 table.table[row][col] = " " + Emoji.kross + " ";
