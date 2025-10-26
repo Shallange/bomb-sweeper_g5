@@ -1,6 +1,7 @@
 package utils;
-
 /**
+ * Utility class used to calculate the number of bombs
+ * based on a given ratio and grid size
  *
  */
 public class RatioCalculator {
@@ -8,6 +9,11 @@ public class RatioCalculator {
 
     public RatioCalculator(){}
 
+    /**
+     * Creates a new RatioCalculator with a given ratio.
+     *
+     * @param ratio percentage (e.g. 0.15 = 15%) used to scale the number of bombs
+     */
     public RatioCalculator(double ratio){
         this.ratio = ratio;
     }
