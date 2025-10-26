@@ -36,7 +36,7 @@ public class Game {
 
             if (hitBomb) {
 
-                System.out.println(Color.orange + "Boom!" + Color.reset + Emoji.bomb + Color.lightBlue + " Game over." + Color.reset + Emoji.crying);
+                System.out.println(Color.orange + "Boom!" + Color.reset + Emoji.bomb + Color.lightBlue + " Game over!" + Color.reset + Emoji.crying);
                 break; // exit loop
             } else {
                 table.table[row][col] = " " + Emoji.kross + " ";

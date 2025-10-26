@@ -9,7 +9,7 @@ public class InputHandler {
     }
 
     public String getInput() {
-        System.out.println(Color.yellow + "Viken ruta vill du undersöka? (tex. b5)" + Color.reset);
+        System.out.println(Emoji.neutral + Color.yellow + "Viken ruta vill du undersöka? " + Color.gray + "(tex. b5)" + Color.reset);
         return sc.nextLine().trim().toLowerCase();
     }
 
