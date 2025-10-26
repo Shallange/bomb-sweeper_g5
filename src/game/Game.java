@@ -43,7 +43,7 @@ public class Game {
             }
 
             if (revealed[row][col]) {
-                System.out.println(Emoji.collision + Color.red + "Rutan är redan undersökt, försök med en annan " + Color.reset);
+                System.out.println(Emoji.collision + Color.red + "Rutan är redan undersökt, försök med en annan: " + Color.reset);
                 continue;
             }
 
