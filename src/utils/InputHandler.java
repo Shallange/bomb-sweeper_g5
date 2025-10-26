@@ -9,11 +9,6 @@ public class InputHandler {
     public  InputHandler() {
     }
 
-//    public String getInput() {
-//        System.out.println("Viken ruta vill du undersöka? (tex. b5)");
-//        return sc.nextLine().trim().toLowerCase();
-//    }
-
     public String getInput(int maxRows, int maxCols) {
         String input;
         while (true) {
@@ -52,11 +47,4 @@ public class InputHandler {
     public int colIndex(String input) {
         return Character.getNumericValue(input.charAt(1)) -1;
     }
-
-
-
-
-
-
-
 }

@@ -8,7 +8,7 @@ import java.util.List;
 public class Game {
     int rows = 6;
     int cols = 6;
-    int numBombs = 3;
+    int numBombs = 15;
 
     boolean [][] revealed = new boolean[rows][cols];
 
@@ -23,10 +23,6 @@ public class Game {
         while (true) {
             String input = inputHandler.getInput(rows,cols);
 
-//            if (!inputHandler.isValidInput(input, rows, cols)) {
-//                System.out.println("Felaktig inmatning, försök igen (tex. B3");
-//                continue;
-//            }
             int row = inputHandler.rowIndex(input);
             int col = inputHandler.colIndex(input);
           
