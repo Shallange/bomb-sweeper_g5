@@ -1,6 +1,5 @@
 package utils;
 
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class InputHandler {
@@ -33,6 +32,7 @@ public class InputHandler {
             return false;
 
         int col = Character.getNumericValue(colChar);
+
         if (col < 1 || col >= 1 + maxCol)
             return false;
 
