@@ -8,7 +8,7 @@ import java.util.List;
 public class Game {
     int rows = 6;
     int cols = 6;
-    int numBombs = 3;
+    int numBombs = 10;
 
     boolean [][] revealed = new boolean[rows][cols];
 
@@ -34,6 +34,7 @@ public class Game {
 
             if (hitBomb) {
                 System.out.println("Boom!\uD83D\uDCA3 Game over.");
+                table.revealBombs(bombs);
                 break; // exit loop
             } else {
                 table.table[row][col] = " X  ";
