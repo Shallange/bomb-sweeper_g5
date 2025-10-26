@@ -26,7 +26,7 @@ public class Game {
             String input = inputHandler.getInput();
 
             if (!inputHandler.isValidInput(input, rows, cols)) {
-                System.out.println("Felaktig inmatning, försök igen (tex. B3");
+                System.out.println(Color.red + "Felaktig inmatning, försök igen (tex. B3" + Color.reset);
                 continue;
             }
             int row = inputHandler.rowIndex(input);
@@ -36,14 +36,14 @@ public class Game {
 
             if (hitBomb) {
 
-                System.out.println("Boom!" + Emoji.bomb + " Game over." + Emoji.crying);
+                System.out.println(Color.orange + "Boom!" + Color.reset + Emoji.bomb + Color.lightBlue + " Game over." + Color.reset + Emoji.crying);
                 break; // exit loop
             } else {
                 table.table[row][col] = " " + Emoji.kross + " ";
             }
 
             if (revealed[row][col]) {
-                System.out.println(Emoji.collision + "Rutan är redan undersökt, försök med en annan ");
+                System.out.println(Emoji.collision + Color.red + "Rutan är redan undersökt, försök med en annan " + Color.reset);
                 continue;
             }
 
