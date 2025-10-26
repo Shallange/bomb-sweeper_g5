@@ -21,12 +21,12 @@ public class Game {
         table.showTable();
 
         while (true) {
-            String input = inputHandler.getInput();
+            String input = inputHandler.getInput(rows,cols);
 
-            if (!inputHandler.isValidInput(input, rows, cols)) {
-                System.out.println("Felaktig inmatning, försök igen (tex. B3");
-                continue;
-            }
+//            if (!inputHandler.isValidInput(input, rows, cols)) {
+//                System.out.println("Felaktig inmatning, försök igen (tex. B3");
+//                continue;
+//            }
             int row = inputHandler.rowIndex(input);
             int col = inputHandler.colIndex(input);
           
