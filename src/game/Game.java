@@ -23,12 +23,8 @@ public class Game {
         table.showTable();
 
         while (true) {
-            String input = inputHandler.getInput();
+            String input = inputHandler.getInput(rows,cols);
 
-            if (!inputHandler.isValidInput(input, rows, cols)) {
-                System.out.println(Color.red + "Felaktig inmatning, försök igen (tex. B3" + Color.reset);
-                continue;
-            }
             int row = inputHandler.rowIndex(input);
             int col = inputHandler.colIndex(input);
 
