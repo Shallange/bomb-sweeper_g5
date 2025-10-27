@@ -19,6 +19,21 @@ public class Table {
         initTable(rows, cols);
     }
 
+
+    public void insertSymbol(int row, int col, String symbol){
+        this.table[row][col] = symbol;
+    }
+
+    public void revealBombs(List<Bomb> bombs){
+        for(Bomb bomb : bombs){
+            int r = bomb.getRow();
+            int c = bomb.getCol();
+
+            insertSymbol(r,c, " \uD83D\uDCA3 ");
+        }
+        showTable();
+    }
+
     private void initTable(int rows, int cols) {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {

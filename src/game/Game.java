@@ -35,7 +35,8 @@ public class Game {
             boolean hitBomb = bombPlacer.isHitBomb(bombs, row, col, false);
 
             if (hitBomb) {
-
+                System.out.println("Boom! " + Emoji.bomb + " Game over.");
+                table.revealBombs(bombs);
                 System.out.println(Color.orange + "Boom!" + Color.reset + Emoji.bomb + Color.lightBlue + " Game over!" + Color.reset + Emoji.crying);
                 break; // exit loop
             } else {
