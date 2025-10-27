@@ -38,11 +38,4 @@ public class InputHandler {
     public int colIndex(String input) {
         return Character.getNumericValue(input.charAt(1)) -1;
     }
-
-
-
-
-
-
-
 }
