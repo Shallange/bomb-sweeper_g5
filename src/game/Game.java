@@ -8,7 +8,7 @@ import java.util.List;
 public class Game {
     int rows = 6;
     int cols = 6;
-    int numBombs = 35;
+    int numBombs = 10;
 
     boolean [][] revealed = new boolean[rows][cols];
 
@@ -52,8 +52,20 @@ public class Game {
 
     }
 
+    private int countRevealed() {
+        int revealedCount = 0;
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (revealed[i][j]) {
+                    revealedCount++;
+                }
+            }
+        }
+        return revealedCount;
+    }
+
     private boolean checkWin() {
-        if (revealed.length + numBombs == rows * cols) {
+        if (countRevealed() + numBombs == rows * cols) {
             System.out.println(Emoji.partyPopper + Color.green + "Grattis! Du har klarat spelet!!!" + Color.reset + Emoji.happy);
             return true;
         }
