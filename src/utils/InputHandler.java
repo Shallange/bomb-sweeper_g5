@@ -8,9 +8,17 @@ public class InputHandler {
     public  InputHandler() {
     }
 
-    public String getInput() {
-        System.out.println("Viken ruta vill du undersöka? (tex. b5)");
-        return sc.nextLine().trim().toLowerCase();
+    public String getInput(int maxRows, int maxCols) {
+        String input;
+        while (true) {
+            System.out.println("Viken ruta vill du undersöka? (tex. C5)");
+            input = sc.nextLine().trim().toLowerCase();
+            if (isValidInput(input, maxRows, maxCols)) {
+                return input;
+            } else {
+                System.out.println("Felaktig inmatning, försök igen (tex. B3");
+            }
+        }
     }
 
     public boolean isValidInput(String input, int maxRow, int maxCol) {
@@ -24,6 +32,7 @@ public class InputHandler {
             return false;
 
         int col = Character.getNumericValue(colChar);
+
         if (col < 1 || col >= 1 + maxCol)
             return false;
 
@@ -38,11 +47,4 @@ public class InputHandler {
     public int colIndex(String input) {
         return Character.getNumericValue(input.charAt(1)) -1;
     }
-
-
-
-
-
-
-
 }
