@@ -3,6 +3,8 @@ import dangers.Bomb;
 import dangers.BombPlacer;
 import utils.InputHandler;
 import utils.RatioCalculator;
+import utils.Emoji;
+import utils.Color;
 
 import java.util.List;
 
@@ -25,29 +27,26 @@ public class Game {
         table.showTable();
 
         while (true) {
-            String input = inputHandler.getInput();
+            String input = inputHandler.getInput(rows,cols);
 
-            if (!inputHandler.isValidInput(input, rows, cols)) {
-                System.out.println("Felaktig inmatning, försök igen (tex. B3");
-                continue;
-            }
             int row = inputHandler.rowIndex(input);
             int col = inputHandler.colIndex(input);
-          
+
             boolean hitBomb = bombPlacer.isHitBomb(bombs, row, col, false);
 
             if (hitBomb) {
-                System.out.println("Boom!\uD83D\uDCA3 Game over.");
+
+                System.out.println(Color.orange + "Boom!" + Color.reset + Emoji.bomb + Color.lightBlue + " Game over!" + Color.reset + Emoji.crying);
                 break; // exit loop
             } else {
-                table.table[row][col] = " X  ";
+                table.table[row][col] = " " + Emoji.kross + " ";
             }
-     
+
             if (revealed[row][col]) {
-                System.out.println("Rutan är redan undersökt, försök med en annan ");
+                System.out.println(Emoji.collision + Color.red + "Rutan är redan undersökt, försök med en annan: " + Color.reset);
                 continue;
             }
-          
+
             revealed[row][col] = true;
             table.showTable();
 
