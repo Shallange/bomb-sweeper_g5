@@ -2,6 +2,7 @@ package game;
 import dangers.Bomb;
 import dangers.BombPlacer;
 import utils.InputHandler;
+import utils.RatioCalculator;
 import utils.Emoji;
 import utils.Color;
 
@@ -10,14 +11,17 @@ import java.util.List;
 public class Game {
     int rows = 6;
     int cols = 6;
-    int numBombs = 10;
-
+    int numBombs;
     boolean [][] revealed = new boolean[rows][cols];
 
     InputHandler inputHandler = new InputHandler();
     BombPlacer bombPlacer = new BombPlacer();
+    RatioCalculator calc = new RatioCalculator();
+
 
     public void playGame() {
+        calc.setRatio(0.15);
+        numBombs = calc.calculateNumOfBombs(rows, cols);
         List<Bomb> bombs = bombPlacer.placeBombs(rows,cols,numBombs);
         Table table = new Table(rows,cols,bombs);
         table.showTable();
