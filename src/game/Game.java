@@ -49,9 +49,30 @@ public class Game {
 
             revealed[row][col] = true;
             table.showTable();
+            if (checkWin()) break;
 
         }
 
+    }
+
+    private int countRevealed() {
+        int revealedCount = 0;
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (revealed[i][j]) {
+                    revealedCount++;
+                }
+            }
+        }
+        return revealedCount;
+    }
+
+    private boolean checkWin() {
+        if (countRevealed() + numBombs == rows * cols) {
+            System.out.println(Emoji.partyPopper + Color.green + "Grattis! Du har klarat spelet!!!" + Color.reset + Emoji.happy);
+            return true;
+        }
+        return false;
     }
 
 }
