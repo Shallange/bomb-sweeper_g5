@@ -26,23 +26,32 @@ public class Table {
     }
 
     public void showTable() {
+        // print column letters
+        System.out.print("   ");
+        for (int j = 0; j < cols; j++) {
+            char columnLetter = (char) ('a' + j);
+            System.out.print("  " + columnLetter + "  ");
+        }
+        System.out.println();
+
         for (int i = 0; i < rows; i++) {
+            // separator line
+            System.out.print("   ");
             for (int j = 0; j < cols; j++) {
-                System.out.print(""+table[i][j]+ "");
-                if (j < table[i].length -1){
-                    System.out.print("|");
-                }
+                System.out.print("----");
+                if (j < cols - 1) System.out.print("+");
             }
             System.out.println();
-            if (i < table.length -1){
-                for (int j = 0; j< table[i].length; j ++){
-                    System.out.print("----");
-                    if (j< table[i].length -1){
-                        System.out.print("+");
-                    }
-                }
-                System.out.println();
+
+            // row number
+            System.out.printf("%2d |", (i + 1));
+
+            // row content
+            for (int j = 0; j < cols; j++) {
+                System.out.print(table[i][j]);
+                System.out.print("|");
             }
+            System.out.println();
         }
     }
 
