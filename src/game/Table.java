@@ -26,27 +26,27 @@ public class Table {
     }
 
     public void showTable() {
-        // print column letters
-        System.out.print("   ");
+        // print column numbers
+        System.out.print("    "); // spacing for the top-left corner
         for (int j = 0; j < cols; j++) {
-            char columnLetter = (char) ('a' + j);
-            System.out.print("  " + columnLetter + "  ");
+            System.out.printf(" %2d  ", (j + 1));
         }
         System.out.println();
 
         for (int i = 0; i < rows; i++) {
-            // separator line
-            System.out.print("   ");
+            // print separator line
+            System.out.print("    ");
             for (int j = 0; j < cols; j++) {
                 System.out.print("----");
                 if (j < cols - 1) System.out.print("+");
             }
             System.out.println();
 
-            // row number
-            System.out.printf("%2d |", (i + 1));
+            // print row letter (a, b, c, ...)
+            char rowLetter = (char) ('a' + i);
+            System.out.print(" " + rowLetter + " |");
 
-            // row content
+            // print the table contents
             for (int j = 0; j < cols; j++) {
                 System.out.print(table[i][j]);
                 System.out.print("|");
@@ -54,6 +54,7 @@ public class Table {
             System.out.println();
         }
     }
+
 
     public List<Bomb> getBombs() {return bombs;}
 }
