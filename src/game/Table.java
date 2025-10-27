@@ -1,6 +1,8 @@
 package game;
 
 import dangers.Bomb;
+import utils.Color;
+
 import java.util.List;
 
 public class Table {
@@ -30,15 +32,15 @@ public class Table {
             for (int j = 0; j < cols; j++) {
                 System.out.print(""+table[i][j]+ "");
                 if (j < table[i].length -1){
-                    System.out.print("|");
+                    System.out.print(Color.gray + "|" + Color.reset);
                 }
             }
             System.out.println();
             if (i < table.length -1){
                 for (int j = 0; j< table[i].length; j ++){
-                    System.out.print("----");
+                    System.out.print(Color.gray + "----" + Color.reset);
                     if (j< table[i].length -1){
-                        System.out.print("+");
+                        System.out.print(Color.gray + "+"  + Color.reset);
                     }
                 }
                 System.out.println();
