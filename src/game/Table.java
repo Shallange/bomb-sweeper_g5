@@ -26,25 +26,35 @@ public class Table {
     }
 
     public void showTable() {
+        // print column numbers
+        System.out.print("    "); // spacing for the top-left corner
+        for (int j = 0; j < cols; j++) {
+            System.out.printf(" %2d  ", (j + 1));
+        }
+        System.out.println();
+
         for (int i = 0; i < rows; i++) {
+            // print separator line
+            System.out.print("    ");
             for (int j = 0; j < cols; j++) {
-                System.out.print(""+table[i][j]+ "");
-                if (j < table[i].length -1){
-                    System.out.print("|");
-                }
+                System.out.print("----");
+                if (j < cols - 1) System.out.print("+");
             }
             System.out.println();
-            if (i < table.length -1){
-                for (int j = 0; j< table[i].length; j ++){
-                    System.out.print("----");
-                    if (j< table[i].length -1){
-                        System.out.print("+");
-                    }
-                }
-                System.out.println();
+
+            // print row letter (a, b, c, ...)
+            char rowLetter = (char) ('a' + i);
+            System.out.print(" " + rowLetter + " |");
+
+            // print the table contents
+            for (int j = 0; j < cols; j++) {
+                System.out.print(table[i][j]);
+                System.out.print("|");
             }
+            System.out.println();
         }
     }
+
 
     public List<Bomb> getBombs() {return bombs;}
 }
