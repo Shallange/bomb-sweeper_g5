@@ -18,44 +18,6 @@ public class Game {
     BombPlacer bombPlacer = new BombPlacer();
     RatioCalculator calc = new RatioCalculator();
 
-
-    public void playGame() {
-        calc.setRatio(0.15);
-        numBombs = calc.calculateNumOfBombs(rows, cols);
-        List<Bomb> bombs = bombPlacer.placeBombs(rows,cols,numBombs);
-        Table table = new Table(rows,cols,bombs);
-        table.showTable();
-
-        while (true) {
-            String input = inputHandler.getInput(rows,cols);
-
-            int row = inputHandler.rowIndex(input);
-            int col = inputHandler.colIndex(input);
-
-            boolean hitBomb = bombPlacer.isHitBomb(bombs, row, col, false);
-
-            if (hitBomb) {
-                System.out.println("Boom! " + Emoji.bomb + " Game over.");
-                table.revealBombs(bombs);
-                System.out.println(Color.orange + "Boom!" + Color.reset + Emoji.bomb + Color.lightBlue + " Game over!" + Color.reset + Emoji.crying);
-                break; // exit loop
-            } else {
-                table.table[row][col] = " " + Emoji.kross + " ";
-            }
-
-            if (revealed[row][col]) {
-                System.out.println(Emoji.collision + Color.red + "Rutan är redan undersökt, försök med en annan: " + Color.reset);
-                continue;
-            }
-
-            revealed[row][col] = true;
-            table.showTable();
-            if (checkWin()) break;
-
-        }
-
-    }
-
     private int countRevealed() {
         int revealedCount = 0;
         for (int i = 0; i < rows; i++) {
@@ -76,4 +38,38 @@ public class Game {
         return false;
     }
 
+
+    public void playGame() {
+        calc.setRatio(0.15);
+        numBombs = calc.calculateNumOfBombs(rows, cols);
+        List<Bomb> bombs = bombPlacer.placeBombs(rows,cols,numBombs);
+        Table table = new Table(rows,cols,bombs);
+        table.showTable();
+
+        while (true) {
+            String input = inputHandler.getInput(rows,cols);
+
+            int row = inputHandler.rowIndex(input);
+            int col = inputHandler.colIndex(input);
+
+            boolean hitBomb = bombPlacer.isHitBomb(bombs, row, col, false);
+
+            if (hitBomb) {
+                table.revealBombs(bombs, Emoji.bomb);
+                System.out.println(Color.orange + "Boom!" + Color.reset + Emoji.bomb + Color.lightBlue + " Game over!" + Color.reset + Emoji.crying);
+                break; // exit loop
+            } else {
+                table.table[row][col] = " " + Emoji.kross + " ";
+            }
+
+            if (revealed[row][col]) {
+                System.out.println(Emoji.collision + Color.red + "Rutan är redan undersökt, försök med en annan: " + Color.reset);
+                continue;
+            }
+
+            revealed[row][col] = true;
+            table.showTable();
+            if (checkWin()) break;
+        }
+    }
 }
