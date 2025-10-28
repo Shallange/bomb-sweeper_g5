@@ -2,7 +2,6 @@ package dangers;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ListResourceBundle;
 import java.util.Random;
 
 public class BombPlacer {
@@ -38,16 +37,14 @@ public class BombPlacer {
     }
 
     /**
-     * reveals the coordinates where the bombs are placed
+     * Checks if the given coordinates row, col is same as a bomb position
      *
-     * @param bombs List of Bomb objects
+     * @param bombs list of all bombs placed on ht
+     * @param row the row coordinate being checked
+     * @param col the column coordinate being checked
+     * @param hitBomb {@code boolean} flag that becomes true if bomb is found
+     * @return {@code true} if the given position contains a bomb, false otherwise
      */
-    public void printBombs(List<Bomb> bombs){
-        System.out.println("Revealing Bomb placements");
-        for (Bomb b : bombs){
-            System.out.printf("Row: %d, Col: %d%n", b.getRow(), b.getCol());
-        }
-    }
     public boolean isHitBomb(List<Bomb> bombs, int row, int col, boolean hitBomb) {
         for (Bomb b : bombs) {
             if (b.getRow() == row && b.getCol() == col) {
@@ -57,5 +54,4 @@ public class BombPlacer {
         }
         return hitBomb;
     }
-
 }
