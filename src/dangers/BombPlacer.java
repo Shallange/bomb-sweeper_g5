@@ -36,6 +36,15 @@ public class BombPlacer {
         return bombs;
     }
 
+    /**
+     * Checks if the given coordinates row, col is same as a bomb position
+     *
+     * @param bombs list of all bombs placed on ht
+     * @param row the row coordinate being checked
+     * @param col the column coordinate being checked
+     * @param hitBomb {@code boolean} flag that becomes true if bomb is found
+     * @return {@code true} if the given position contains a bomb, false otherwise
+     */
     public boolean isHitBomb(List<Bomb> bombs, int row, int col, boolean hitBomb) {
         for (Bomb b : bombs) {
             if (b.getRow() == row && b.getCol() == col) {
