@@ -11,12 +11,12 @@ public class InputHandler {
     public String getInput(int maxRows, int maxCols) {
         String input;
         while (true) {
-            System.out.println("Viken ruta vill du undersöka? (tex. C5)");
+            System.out.println(Emoji.neutral + Color.yellow + "Viken ruta vill du undersöka? " + Color.gray + "(tex. b5)" + Color.reset);
             input = sc.nextLine().trim().toLowerCase();
             if (isValidInput(input, maxRows, maxCols)) {
                 return input;
             } else {
-                System.out.println("Felaktig inmatning, försök igen (tex. B3");
+                System.out.println(Color.red + "Felaktig inmatning, försök igen (tex. B3)" + Color.reset);
             }
         }
     }
