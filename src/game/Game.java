@@ -77,11 +77,11 @@ public class Game {
             }
              playAgain = askPlayAgain();
         }
-        System.out.println("Tack för att du spelade!");
+        System.out.println(Color.cyan + "Tack för att du spelade!" +  Color.reset + Emoji.happy);
     }
 
     private boolean askPlayAgain() {
-        System.out.println("Vill du spela igen? (y/n)");
+        System.out.println(Color.yellow + "Vill du spela igen? (y/n)" + Color.reset);
         String answer = InputHandler.sc.nextLine().trim().toLowerCase();
         return answer.equals("y");
     }
