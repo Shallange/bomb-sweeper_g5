@@ -40,11 +40,14 @@ public class Game {
 
 
     public void playGame() {
-        calc.setRatio(0.15);
-        numBombs = calc.calculateNumOfBombs(rows, cols);
-        List<Bomb> bombs = bombPlacer.placeBombs(rows,cols,numBombs);
-        Table table = new Table(rows,cols,bombs);
-        table.showTable();
+        boolean playAgain = true;
+
+        while (playAgain) {
+            calc.setRatio(0.15);
+            numBombs = calc.calculateNumOfBombs(rows, cols);
+            List<Bomb> bombs = bombPlacer.placeBombs(rows, cols, numBombs);
+            Table table = new Table(rows, cols, bombs);
+            table.showTable();
 
         while (true) {
             String input = inputHandler.getInput(rows,cols);
@@ -67,9 +70,19 @@ public class Game {
                 continue;
             }
 
-            revealed[row][col] = true;
-            table.showTable();
-            if (checkWin()) break;
+                revealed[row][col] = true;
+                table.showTable();
+                if (checkWin()) break;
+
+            }
+             playAgain = askPlayAgain();
         }
+        System.out.println("Tack för att du spelade!");
+    }
+
+    private boolean askPlayAgain() {
+        System.out.println("Vill du spela igen? (y/n)");
+        String answer = InputHandler.sc.nextLine().trim().toLowerCase();
+        return answer.equals("y");
     }
 }
