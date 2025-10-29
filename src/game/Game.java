@@ -27,6 +27,7 @@ public class Game {
             int totalNumberOfCells = diff.getCols() * diff.getRows();
 
         while (true) {
+            System.out.println("Nuvarande svårighetsgrad:" + diff.getName());
             String input = inputHandler.getInput(diff.getRows(), diff.getCols());
             int row = inputHandler.rowIndex(input);
             int col = inputHandler.colIndex(input);
@@ -41,9 +42,10 @@ public class Game {
                 int adjacent = countAdjacentBombs(bombs,row, col, diff.getRows(), diff.getCols());
 
                 if (adjacent > 0) {
-                    table.insertSymbol(row, col, String.valueOf(adjacent));
+                    String adjacentWithSpace = adjacent + " ";
+                    table.insertSymbol(row, col, adjacentWithSpace);
                 } else {
-                    table.insertSymbol(row, col, "·"); // or " " or Emoji.grass
+                    table.insertSymbol(row, col, Emoji.kross);
                 }
             }
 
