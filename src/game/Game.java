@@ -43,6 +43,7 @@ public class Game {
         boolean playAgain = true;
 
         while (playAgain) {
+            revealed = new boolean[rows][cols];
             calc.setRatio(0.15);
             numBombs = calc.calculateNumOfBombs(rows, cols);
             List<Bomb> bombs = bombPlacer.placeBombs(rows, cols, numBombs);
@@ -62,7 +63,13 @@ public class Game {
                 System.out.println(Color.orange + "Boom!" + Color.reset + Emoji.bomb + Color.lightBlue + " Game over!" + Color.reset + Emoji.crying);
                 break; // exit loop
             } else {
-                table.table[row][col] = " " + Emoji.kross + " ";
+                int adjacent = countAdjacentBombs(bombs, row, col);
+
+                if (adjacent > 0) {
+                    table.insertSymbol(row, col, String.valueOf(adjacent));
+                } else {
+                    table.insertSymbol(row, col, "·"); // or " " or Emoji.grass
+                }
             }
 
             if (revealed[row][col]) {
@@ -84,5 +91,27 @@ public class Game {
         System.out.println("Vill du spela igen? (y/n)");
         String answer = InputHandler.sc.nextLine().trim().toLowerCase();
         return answer.equals("y");
+    }
+
+    private int countAdjacentBombs(List<Bomb> bombs, int row, int col) {
+        int count = 0;
+
+        for (int dr = -1; dr <= 1; dr++) {
+            for (int dc = -1; dc <= 1; dc++) {
+
+                if (dr == 0 && dc == 0) continue; // skip the cell itself
+
+                int newRow = row + dr;
+                int newCol = col + dc;
+
+                // check inside grid
+                if (newRow >= 0 && newRow < rows && newCol >= 0 && newCol < cols) {
+                    if (bombPlacer.isHitBomb(bombs, newRow, newCol, false)) {
+                        count++;
+                    }
+                }
+            }
+        }
+        return count;
     }
 }
