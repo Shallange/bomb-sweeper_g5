@@ -32,7 +32,7 @@ public class Game {
 
     private boolean checkWin() {
         if (countRevealed() + numBombs == rows * cols) {
-            System.out.println(Emoji.partyPopper + Color.green + "Grattis! Du har klarat spelet!!!" + Color.reset + Emoji.happy);
+            System.out.println(Emoji.partyPopper + Color.green + "Grattis! Du har klarat spelet!!!" + Color.reset + Emoji.happy + Emoji.tearsOfJoy);
             return true;
         }
         return false;
