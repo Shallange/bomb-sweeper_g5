@@ -60,13 +60,13 @@ public class Game {
             }
              playAgain = askPlayAgain();
         }
-        System.out.println("Tack för att du spelade!");
+        System.out.println(Color.cyan + "Tack för att du spelade!" +  Color.reset + Emoji.happy);
     }
 
     private boolean askPlayAgain() {
-        System.out.println("Vill du spela igen? (y/n)");
+        System.out.println(Color.yellow + "Vill du spela igen? (j/n)" + Color.reset);
         String answer = InputHandler.sc.nextLine().trim().toLowerCase();
-        return answer.equals("y");
+        return answer.equals("j");
     }
 
     private int countAdjacentBombs(List<Bomb> bombs, int row, int col, int totalRows, int totalCols) {
@@ -107,7 +107,7 @@ public class Game {
 
     private boolean checkWin(int countNumber,int totalNumOfCells) {
         if (countNumber == totalNumOfCells) {
-            System.out.println(Emoji.partyPopper + Color.green + "Grattis! Du har klarat spelet!!!" + Color.reset + Emoji.happy);
+            System.out.println(Emoji.partyPopper + Color.green + "Grattis! Du har klarat spelet!!!" + Color.reset + Emoji.happy + Emoji.tearsOfJoy);
             return true;
         }
         return false;

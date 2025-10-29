@@ -5,7 +5,6 @@ public class Color {
     private Color() {
     }
 
-
     public static final String reset    = "\u001B[0m";
     // write reset after every color
     // ex. System.out.println(Color.blue + "Hello World" + Color.reset)
