@@ -81,8 +81,8 @@ public class Game {
     }
 
     private boolean askPlayAgain() {
-        System.out.println(Color.yellow + "Vill du spela igen? (y/n)" + Color.reset);
+        System.out.println(Color.yellow + "Vill du spela igen? (j/n)" + Color.reset);
         String answer = InputHandler.sc.nextLine().trim().toLowerCase();
-        return answer.equals("y");
+        return answer.equals("j");
     }
 }

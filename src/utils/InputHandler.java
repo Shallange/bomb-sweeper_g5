@@ -11,7 +11,7 @@ public class InputHandler {
     public String getInput(int maxRows, int maxCols) {
         String input;
         while (true) {
-            System.out.println(Emoji.neutral + Color.yellow + "Viken ruta vill du undersöka? " + Color.gray + "(tex. b5)" + Color.reset);
+            System.out.println(Color.yellow + "Viken ruta vill du undersöka? " + Color.gray + "(tex. b5)" + Color.reset);
             input = sc.nextLine().trim().toLowerCase();
             if (isValidInput(input, maxRows, maxCols)) {
                 return input;
