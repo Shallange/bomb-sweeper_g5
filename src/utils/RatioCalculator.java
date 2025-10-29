@@ -7,8 +7,6 @@ package utils;
 public class RatioCalculator {
     private double ratio;
 
-    public RatioCalculator(){}
-
     /**
      * Creates a new RatioCalculator with a given ratio.
      *
