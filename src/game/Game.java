@@ -38,14 +38,20 @@ public class Game {
                 System.out.println(Color.orange + "Boom!" + Color.reset + Emoji.bomb + Color.lightBlue + " Game over!" + Color.reset + Emoji.crying);
                 break; // exit loop
             } else {
-                table.table[row][col] = " " + Emoji.kross + " ";
-            }
+                int adjacent = countAdjacentBombs(bombs,row, col, diff.getRows(), diff.getCols());
 
+                if (adjacent > 0) {
+                    table.insertSymbol(row, col, String.valueOf(adjacent));
+                } else {
+                    table.insertSymbol(row, col, "·"); // or " " or Emoji.grass
+                }
+            }
 
             if (revealed[row][col]) {
                 System.out.println(Emoji.collision + Color.red + "Rutan är redan undersökt, försök med en annan: " + Color.reset);
                 continue;
             }
+
                 revealed[row][col] = true;
                 table.showTable();
                 if (checkWin(countNumber, totalNumberOfCells)) break;
@@ -55,11 +61,32 @@ public class Game {
         System.out.println("Tack för att du spelade!");
     }
 
-
     private boolean askPlayAgain() {
         System.out.println("Vill du spela igen? (y/n)");
         String answer = InputHandler.sc.nextLine().trim().toLowerCase();
         return answer.equals("y");
+    }
+
+    private int countAdjacentBombs(List<Bomb> bombs, int row, int col, int totalRows, int totalCols) {
+        int count = 0;
+
+        for (int dr = -1; dr <= 1; dr++) {
+            for (int dc = -1; dc <= 1; dc++) {
+
+                if (dr == 0 && dc == 0) continue; // skip the cell itself
+
+                int newRow = row + dr;
+                int newCol = col + dc;
+
+                // check inside grid
+                if (newRow >= 0 && newRow < totalRows && newCol >= 0 && newCol < totalCols) {
+                    if (bombPlacer.isHitBomb(bombs, newRow, newCol, false)) {
+                        count++;
+                    }
+                }
+            }
+        }
+        return count;
     }
 
 
