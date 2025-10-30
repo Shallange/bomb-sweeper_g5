@@ -17,7 +17,8 @@ public class Game {
         boolean playAgain = true;
 
         while (playAgain) {
-            Difficulty diff = new Difficulty(3);//userinput
+            int level = chooseDifficultyMenu();
+            Difficulty diff = new Difficulty(level);
             boolean [][] revealed = new boolean[diff.getRows()][diff.getCols()];
             numBombs = diff.getNumberOfBombs();
             List<Bomb> bombs = bombPlacer.placeBombs(diff.getRows(), diff.getCols(), numBombs);
@@ -111,5 +112,22 @@ public class Game {
             return true;
         }
         return false;
+    }
+
+    private int chooseDifficultyMenu() {
+        System.out.println(Color.cyan + "Välj svårighetsgrad:" + Color.reset);
+        System.out.println(Color.blue + "1. Easy (5x5)" + Color.reset);
+        System.out.println(Color.green + "2. Medium (7x7)" + Color.reset);
+        System.out.println(Color.red + "3. Hard (9x9)" + Color.reset);
+
+        System.out.print(Color.yellow + "Skriv 1, 2 eller 3: " + Color.reset);
+
+        while (true) {
+            String input = InputHandler.sc.nextLine().trim();
+            if (input.equals("1") || input.equals("2") || input.equals("3")) {
+                return Integer.parseInt(input);
+            }
+            System.out.print(Color.red + "Felaktigt svar. Försök igen: " + Color.reset);
+        }
     }
 }
