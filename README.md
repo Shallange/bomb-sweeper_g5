@@ -30,7 +30,7 @@ We left out features like recursive reveal for now, but the base logic supports 
 ## How to Run
 
 Clone the project or download the zip file
-go in src fil via terminal and run these commands
+go in src folder via terminal and run these commands
 
 ```bash
   cd src
@@ -43,3 +43,15 @@ go in src fil via terminal and run these commands
 ```bash
   java Main
 ```
+## Example of different scenarios
+
+Below are examples of different game outcomes and states.
+
+| Game State               | Preview                                               |
+|--------------------------|-------------------------------------------------------|
+| **Difficulty selection** | <img src="./images/chooseDifficulty.png" width="320"> |
+| **Medium grid**          | <img src="./images/mediumGrid.png" width="320">       |
+| **Already checked cell** | <img src="./images/alreadyChecked.png" width="320">   |
+| **Lost game**            | <img src="./images/lostGame.png" width="320">         |
+| **Won game**             | <img src="./images/winGame.png" width="320">          |
+
