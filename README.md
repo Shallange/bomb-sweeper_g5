@@ -20,21 +20,26 @@ In game bombs are revealed not necessarily mines, hence the name change
 ---
 
 ## Design Choices
+
 The structure is built around small, focused classes.
 This made it easier to test and change individual parts without breaking the rest of the code.
 We left out features like recursive reveal for now, but the base logic supports adding them in a later version.
+
 ---
 
 ## How to Run
+
 Clone the project or download the zip file
 go in src fil via terminal and run these commands
 
 ```bash
   cd src
 ```
+
 ```bash
   javac Main.java
 ```
+
 ```bash
   java Main
 ```
