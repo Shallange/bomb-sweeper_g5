@@ -24,7 +24,6 @@ public class Game {
             List<Bomb> bombs = bombPlacer.placeBombs(diff.getRows(), diff.getCols(), numBombs);
             Table table = new Table(diff.getRows(), diff.getCols(), bombs);
             table.showTable();
-            int countNumber = countRevealed(diff.getRows(), diff.getCols(),revealed);
             int totalNumberOfCells = diff.getCols() * diff.getRows();
 
         while (true) {
@@ -57,7 +56,8 @@ public class Game {
 
                 revealed[row][col] = true;
                 table.showTable();
-                if (checkWin(countNumber, totalNumberOfCells)) break;
+                int countNumber = countRevealed(diff.getRows(), diff.getCols(),revealed);
+                if (checkWin(countNumber, totalNumberOfCells, numBombs)) break;
             }
              playAgain = askPlayAgain();
         }
@@ -106,8 +106,8 @@ public class Game {
     }
 
 
-    private boolean checkWin(int countNumber,int totalNumOfCells) {
-        if (countNumber == totalNumOfCells) {
+    private boolean checkWin(int countNumber,int totalNumOfCells, int numBombs) {
+        if (countNumber == totalNumOfCells - numBombs) {
             System.out.println(Emoji.partyPopper + Color.green + "Grattis! Du har klarat spelet!!!" + Color.reset + Emoji.happy + Emoji.tearsOfJoy);
             return true;
         }
